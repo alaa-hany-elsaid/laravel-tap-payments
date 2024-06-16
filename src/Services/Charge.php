@@ -16,6 +16,7 @@ class Charge extends AbstractService
 
 	public function __construct( $id = null )
 	{
+		$this->attributes['language'] = in_array(app()->getLocale() , ['ar' , 'en']) ? app()->getLocale() : 'en'  ;
 		if ( $id ) {
 			$this->attributes['id'] = $id;
 			$this->setEndpoint( $id );
